@@ -237,6 +237,7 @@ a {
 
   .right_section_card {
     padding: 5rem 0rem;
+    margin: 0rem 2rem;
   }
 }
 </style>
