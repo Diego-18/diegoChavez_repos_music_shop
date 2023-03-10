@@ -18,16 +18,20 @@
 
       <div class="right_section_card">
         <div class="right_section_form">
-          <p class="form_title">Enter your credentials</p>
-          <label class="form_label">Email address</label>
-          <input type="text" class="form_input" placeholder="yourname@gmail.com">
+          <form ref="form">
+            <p class="form_title">Enter your credentials</p>
+            <label class="form_label">Email address</label>
+            <input type="email" class="form_input" placeholder="yourname@gmail.com" v-model="login.email" required
+              v-debounce:700ms="validateEmail">
 
-          <label class="form_label">Password</label>
-          <input type="password" class="form_input" placeholder="12345ADBC#@$@$">
-          <br>
-          <input type="checkbox"> <span> Keep me signed in </span>
-          <br>
-          <button class="form_button">LOGIN</button>
+            <label class="form_label">Password</label>
+            <input type="password" class="form_input" placeholder="12345ADBC#@$@$" v-model="login.password" required>
+            <br>
+            <input type="checkbox"> <span> Keep me signed in </span>
+            <br>
+            <input type="button" class="form_button" value="LOGIN" @click="authenticate">
+          </form>
+
           <div class="form_links">
             <div class="links">
               <span class="form_text">Not a member? </span>
@@ -35,35 +39,97 @@
             </div>
             <div class="links"><a href="/"> Forgot password?</a></div>
           </div>
+          <div v-if="showAlert">
+            <Alerts :type-alert="typeAlert" :msg-alert="msgAlert" />
+
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import Backend from '@/services/BackendServices'
+import Alerts from '@/components/Alerts/Alerts'
 export default {
   layout: 'login',
+  components: {
+    Alerts
+  },
   data() {
     return {
-      snackbar: '',
-      snackbarText: '',
-      valid: false,
-      processing: false,
       login: {
-        username: '',
+        email: '',
         password: '',
       },
-      resolution: 0,
-      validationRules: {
-        username: [(v) => !!v || 'User is required'],
-        password: [(v) => !!v || 'Password required'],
-      },
+      token: '',
+      name: '',
+      typeAlert: '',
+      msgAlert: '',
+      showAlert: false,
     }
   },
   mounted() {
   },
   methods: {
+    validateEmail() {
+      const ExpReg = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
+      const pattern = new RegExp(ExpReg, 'i')
+      if (pattern.test(this.login.email)) {
+        return true
+      } else {
+        this.msgAlert = "Invalid Email."
+        this.typeAlert = "error";
+        this.showAlert = true;
+      }
+    },
+    authenticate() {
+      if (this.login.email && this.login.password) {
+        Backend.login(this.login)
+          .then((data) => {
+            if (data.token !== '') {
+              localStorage.setItem('token', data.token);
+              localStorage.setItem('userName', data.userName);
+              localStorage.setItem('userEmail', data.userEmail);
+              this.$router.push('/instruments');
+            }
+            else {
+              this.$router.push('/');
+            }
+          })
+          .catch((error) => {
+            this.typeAlert = "error";
+            this.showAlert = true;
 
+            if (error.response.data.status === 404 || error.response.data.status === 403) {
+              this.msgAlert = "Invalid credentials please try again."
+            }
+            else {
+              this.msgAlert = "Error in the request try again."
+            }
+          })
+          .finally(() => {
+            setTimeout(() => {
+              this.showAlert = false;
+            }, 3000)
+          })
+      }
+      else {
+        if (!this.login.email.trim()) this.msgAlert = "Email is required."
+
+        if (!this.login.password.trim()) this.msgAlert = "Password is required."
+
+        if (!this.login.email.trim() && !this.login.password.trim())
+          this.msgAlert = "Required fields are empty."
+
+        this.typeAlert = "error";
+        this.showAlert = true;
+
+        setTimeout(() => {
+          this.showAlert = false;
+        }, 3000)
+      }
+    }
   },
   head: {
     title: 'Login',
