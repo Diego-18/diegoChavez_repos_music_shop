@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = process.env.BACKEND_URL || "http://localhost:3002";
+const api = process.env.BACKEND_URL || "https://music-shop-q6a2.onrender.com";
 
 export default {
   login(data) {
