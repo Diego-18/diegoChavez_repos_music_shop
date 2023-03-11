@@ -74,6 +74,10 @@ export default {
         this.msgAlert = "Invalid Email."
         this.typeAlert = "error";
         this.showAlert = true;
+
+        setTimeout(() => {
+          this.showAlert = false;
+        }, 3000)
       }
     },
     saveUser() {
