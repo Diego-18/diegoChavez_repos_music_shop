@@ -6,4 +6,8 @@ export default {
   login(data) {
     return axios.post(api + "/auth/login", data).then((res) => res.data);
   },
+
+  createUser(data) {
+    return axios.post(api + "/auth/register", data).then((res) => res.data);
+  },
 };

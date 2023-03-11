@@ -6,6 +6,13 @@
 export default {}
 </script>
 <style>
+@font-face {
+  font-family: 'Bernier';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/Bernier.otf');
+}
+
 * {
   font-family: 'Open Sans', sans-serif;
 }
