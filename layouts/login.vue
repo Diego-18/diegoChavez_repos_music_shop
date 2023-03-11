@@ -22,7 +22,8 @@
 export default {}
 </script>
 <style>
-@import "https://pro.fontawesome.com/releases/v5.10.0/css/all.css";
+@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
+
 @font-face {
   font-family: 'Bernier';
   font-style: normal;

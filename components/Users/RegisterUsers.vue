@@ -2,7 +2,7 @@
   <div class="right_section">
     <div class="right_section_navbar">
       <button @click="back()">
-      <i class="fas fa-arrow-alt-circle-left"></i>
+      <i class="fas fa-arrow-alt-circle-left"> Back</i>
       </button>
     </div>
     <div class="right_section_card">
