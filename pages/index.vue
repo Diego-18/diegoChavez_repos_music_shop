@@ -11,10 +11,11 @@
           <p class="form_title">Enter your credentials</p>
           <label class="form_label">Email address</label>
           <input type="email" class="form_input" placeholder="yourname@gmail.com" v-model="login.email" required
-            v-debounce:700ms="validateEmail">
+            v-debounce:700ms="validateEmail" autocomplete="off">
 
           <label class="form_label">Password</label>
-          <input type="password" class="form_input" placeholder="12345ADBC#@$@$" v-model="login.password" required>
+          <input type="password" class="form_input" placeholder="12345ADBC#@$@$" v-model="login.password" required
+            autocomplete="off">
           <br>
           <input type="checkbox"> <span> Keep me signed in </span>
           <br>
@@ -203,6 +204,11 @@ a {
   color: #fff;
   border-radius: .2rem;
   font-size: 1.2rem;
+}
+
+.form_button:hover {
+  background: #fff;
+  color: var(--firstColor);
 }
 
 .form_input,
