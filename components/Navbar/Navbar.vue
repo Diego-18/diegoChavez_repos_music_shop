@@ -2,10 +2,9 @@
   <div>
     <div class="navbar">
       <div class="navbar_first_section">
-
+        <Logo />
       </div>
       <div class="navbar_second_section">
-
         <span class="user_name">{{ nameUser }}</span>
         <img class="user_photo" src="/img/user.png" />
         <button class="cstm_button" @click="logout">LOGOUT</button>
@@ -14,7 +13,11 @@
   </div>
 </template>
 <script>
+import Logo from '@/components/Logo/Logo'
 export default {
+  components: {
+    Logo
+  },
   data() {
     return {
       nameUser: '',
@@ -40,7 +43,6 @@ export default {
   display: inline-flex;
 }
 
-.navbar_first_section,
 .navbar_second_section {
   display: inline-flex;
   justify-content: end;
@@ -48,6 +50,9 @@ export default {
 
 .navbar_first_section {
   width: 20%;
+  font-size: 3rem;
+  padding: 0rem .5rem;
+  color: var(--firstColor);
 }
 
 .navbar_second_section {

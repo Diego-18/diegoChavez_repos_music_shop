@@ -2,10 +2,7 @@
   <div class="flex-container">
     <div class="left_bar">
       <div class="left_bar_logo">
-        <p>Music Shop
-          <i class="fas fa-guitar"></i>
-        </p>
-
+        <Logo />
       </div>
 
       <div class="left_bar_description">
@@ -18,19 +15,14 @@
 </template>
 
 <script>
-
-export default {}
+import Logo from '@/components/Logo/Logo'
+export default {
+  components: {
+    Logo
+  },
+}
 </script>
 <style>
-@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
-
-@font-face {
-  font-family: 'Bernier';
-  font-style: normal;
-  font-weight: normal;
-  src: url('/fonts/Bernier.otf');
-}
-
 * {
   font-family: 'Open Sans', sans-serif;
   margin: 0px;
@@ -72,9 +64,7 @@ export default {}
   font-size: 3rem;
 }
 
-.left_bar_logo p {
-  font-family: 'Bernier' !important;
-}
+
 
 .left_bar_description {
   margin: 0 auto;
