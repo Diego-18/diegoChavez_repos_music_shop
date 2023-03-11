@@ -5,10 +5,13 @@
         <Logo />
       </div>
       <div class="navbar_second_section">
-        <span class="user_name">{{ nameUser }}</span>
-        <img class="user_photo" src="/img/user.png" />
-        <button class="cstm_button" @click="logout">LOGOUT</button>
+        <img class="user_photo" src="/img/user.png" @click="openDrop" />
       </div>
+    </div>
+    <div class="drop_user" v-if="drop">
+      <img class="user_photo" src="/img/user.png" />
+      <span class="user_name">{{ nameUser }}</span>
+      <button class="cstm_button" @click="logout">LOGOUT</button>
     </div>
   </div>
 </template>
@@ -21,6 +24,7 @@ export default {
   data() {
     return {
       nameUser: '',
+      drop: false,
     }
   },
   mounted() {
@@ -32,6 +36,9 @@ export default {
     logout() {
       localStorage.clear();
       this.$router.push('/');
+    },
+    openDrop() {
+      this.drop = !this.drop;
     }
   }
 }
@@ -41,11 +48,8 @@ export default {
   width: 100vw;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   display: inline-flex;
-}
-
-.navbar_second_section {
-  display: inline-flex;
-  justify-content: end;
+  position: relative;
+  z-index: 0;
 }
 
 .navbar_first_section {
@@ -83,10 +87,22 @@ export default {
   height: 2rem;
 }
 
-.search {
+.drop_user {
+  position: absolute;
+  z-index: 10000;
+  width: 10%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  right: 0%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+}
+
+/* .search {
   margin: auto 1rem;
   width: 100%;
   text-align: center;
   padding: .5rem 0rem;
-}
+} */
 </style>
