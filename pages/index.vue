@@ -1,48 +1,38 @@
 <template>
-  <div class="flex-container">
-    <div class="left_bar">
-      <div class="left_bar_logo">
-        <p>Music Shop</p>
-      </div>
-
-      <div class="left_bar_description">
-        <p>Welcome!</p>
-        <p>Sign to start</p>
-      </div>
+  <div class="right_section">
+    <div class="right_section_navbar">
+      <span>No employer account yet?</span>
+      <button @click="registerUsers"><i class="fas fa-users"></i> Register</button>
     </div>
-    <div class="right_section">
-      <div class="right_section_navbar">
-        <span>No employer account yet?</span>
-        <button>Register</button>
-      </div>
 
-      <div class="right_section_card">
-        <div class="right_section_form">
-          <form ref="form">
-            <p class="form_title">Enter your credentials</p>
-            <label class="form_label">Email address</label>
-            <input type="email" class="form_input" placeholder="yourname@gmail.com" v-model="login.email" required
-              v-debounce:700ms="validateEmail">
+    <div class="right_section_card">
+      <div class="right_section_form">
+        <form ref="form">
+          <p class="form_title">Enter your credentials</p>
+          <label class="form_label">Email address</label>
+          <input type="email" class="form_input" placeholder="yourname@gmail.com" v-model="login.email" required
+            v-debounce:700ms="validateEmail">
 
-            <label class="form_label">Password</label>
-            <input type="password" class="form_input" placeholder="12345ADBC#@$@$" v-model="login.password" required>
-            <br>
-            <input type="checkbox"> <span> Keep me signed in </span>
-            <br>
-            <input type="button" class="form_button" value="LOGIN" @click="authenticate">
-          </form>
+          <label class="form_label">Password</label>
+          <input type="password" class="form_input" placeholder="12345ADBC#@$@$" v-model="login.password" required>
+          <br>
+          <input type="checkbox"> <span> Keep me signed in </span>
+          <br>
+          <input type="button" class="form_button" value="LOGIN" @click="authenticate">
+        </form>
 
-          <div class="form_links">
-            <div class="links">
-              <span class="form_text">Not a member? </span>
-              <a href="/">Sign Up</a>
-            </div>
-            <div class="links"><a href="/"> Forgot password?</a></div>
+        <div class="form_links">
+          <div class="links">
+            <span class="form_text">Not a member? </span>
+            <NuxtLink to="/users">
+              Sign Up
+            </NuxtLink>
           </div>
-          <div v-if="showAlert">
-            <Alerts :type-alert="typeAlert" :msg-alert="msgAlert" />
+          <div class="links"><a href="/"> Forgot password?</a></div>
+        </div>
+        <div v-if="showAlert">
+          <Alerts :type-alert="typeAlert" :msg-alert="msgAlert" />
 
-          </div>
         </div>
       </div>
     </div>
@@ -129,6 +119,9 @@ export default {
           this.showAlert = false;
         }, 3000)
       }
+    },
+    registerUsers() {
+      this.$router.push('/users');
     }
   },
   head: {
@@ -137,54 +130,6 @@ export default {
 }
 </script>
 <style scope>
-@font-face {
-  font-family: 'Bernier';
-  font-style: normal;
-  font-weight: normal;
-  src: url('/fonts/Bernier.otf');
-}
-
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.left_bar {
-  width: 20vw;
-  background: var(--firstColor) !important;
-  height: 100vh;
-  padding: 1rem 2rem;
-}
-
-.left_bar_logo,
-.left_bar_description {
-  color: #fff;
-  font-weight: 700;
-}
-
-.left_bar_logo {
-  font-weight: normal;
-  top: 50%;
-  left: 50%;
-  height: 30%;
-  text-transform: uppercase;
-  font-size: 3rem;
-}
-
-.left_bar_logo p {
-  font-family: 'Bernier' !important;
-}
-
-.left_bar_description {
-  margin: 0 auto;
-  font-size: 2rem;
-}
-
-.right_section {
-  margin: 0rem auto;
-  width: 65vw;
-}
-
 .right_section_navbar {
   padding: 1rem 0;
   text-align: right;
