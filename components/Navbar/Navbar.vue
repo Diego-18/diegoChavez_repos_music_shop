@@ -10,7 +10,8 @@
     </div>
     <div class="drop_user" v-if="drop">
       <img class="user_photo" src="/img/user.png" />
-      <span class="user_name">{{ nameUser }}</span>
+      <p class="user_name">{{ nameUser }}</p>
+      <p class="user_name">{{ emailUser }}</p>
       <button class="cstm_button" @click="logout">LOGOUT</button>
     </div>
   </div>
@@ -24,12 +25,17 @@ export default {
   data() {
     return {
       nameUser: '',
+      emailUser: '',
       drop: false,
     }
   },
   mounted() {
     if (localStorage.userName) {
       this.nameUser = localStorage.userName;
+    }
+
+    if (localStorage.userEmail) {
+      this.emailUser = localStorage.userEmail;
     }
   },
   methods: {
@@ -90,13 +96,14 @@ export default {
 .drop_user {
   position: absolute;
   z-index: 10000;
-  width: 10%;
+  width: 20%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   right: 0%;
   display: flex;
   flex-direction: column;
   padding: 1rem;
   align-items: center;
+  font-size: 1rem;
 }
 
 /* .search {
