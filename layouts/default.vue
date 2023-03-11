@@ -1,9 +1,17 @@
 <template>
-  <Nuxt />
+  <div class="flex-container">
+    <Navbar />
+    <Nuxt />
+  </div>
 </template>
 
 <script>
-export default {}
+import Navbar from '@/components/Navbar/Navbar'
+export default {
+  components: {
+    Navbar
+  }
+}
 </script>
 <style>
 @font-face {
@@ -28,5 +36,20 @@ export default {}
 
 .first-font {
   color: var(--firstColor) !important;
+}
+
+.cstm_button {
+  color: #fff;
+  border: var(--firstColor) 1px solid;
+  background: var(--firstColor);
+  border-radius: .2rem;
+  margin: auto .5rem;
+  width: 6rem;
+  height: 2rem;
+}
+
+.cstm_button:hover {
+  color: var(--firstColor);
+  background: #fff;
 }
 </style>

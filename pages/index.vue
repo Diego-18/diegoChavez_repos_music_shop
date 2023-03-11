@@ -134,7 +134,6 @@ export default {
 .right_section_navbar {
   padding: 1rem 0;
   text-align: right;
-
 }
 
 .right_section_navbar span {
