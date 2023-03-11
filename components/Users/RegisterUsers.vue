@@ -2,7 +2,7 @@
   <div class="right_section">
     <div class="right_section_navbar">
       <button @click="back()">
-      <i class="fas fa-arrow-alt-circle-left"> Back</i>
+        <i class="fas fa-arrow-alt-circle-left"> Back</i>
       </button>
     </div>
     <div class="right_section_card">
@@ -81,6 +81,11 @@ export default {
         if (this.user.password === this.user.confirmPassword) {
           Backend.createUser(this.user)
             .then((data) => {
+              this.user.name = '';
+              this.user.email = '';
+              this.user.password = '';
+              this.user.confirmPassword = '';
+
               if (data.status === 200) {
                 this.msgAlert = "User created sucessfully.";
               }
