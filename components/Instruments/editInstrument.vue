@@ -1,7 +1,7 @@
 <template>
   <div class="section_form">
     <div class="title">
-      <p class="form_title">Register Instrument</p>
+      <p class="form_title">Update Instrument</p>
       <input type="button" class="cstm_button back_button" value="BACK" @click="back">
     </div>
 
@@ -40,13 +40,17 @@ export default {
   components: {
     Alerts
   },
+  props: {
+    instrument: [],
+  },
   data() {
     return {
       instrument: {
-        name: "",
-        price: "",
-        ranking: "",
-        currency: "",
+        id: this.$props._id,
+        name: this.$props.name,
+        price: this.$props.price,
+        ranking: this.$props.ranking,
+        currency: this.$props.currency,
       },
       typeAlert: '',
       msgAlert: '',
@@ -55,7 +59,7 @@ export default {
   },
   methods: {
     saveInstrument() {
-      Backend.createInstrument(this.instrument)
+      Backend.updateInstrument(this.instrument)
         .then((data) => {
           this.instrument.name = "";
           this.instrument.price = "";
@@ -63,11 +67,10 @@ export default {
           this.instrument.currency = "";
 
           if (data.status === 200) {
-            this.$emit('backSection', 'create');
+            this.$emit('backSection', 'update');
           }
         })
         .catch((error) => {
-          console.log(error);
           this.typeAlert = "error";
           this.showAlert = true;
 

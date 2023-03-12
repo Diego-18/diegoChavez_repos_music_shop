@@ -37,4 +37,29 @@ export default {
       })
       .then((res) => res.data);
   },
+
+  deleteInstrument(id) {
+    return axios
+      .delete(api + "/instruments/" + id, {
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
+      .then((res) => res.data);
+  },
+
+  updateInstrument(data) {
+    console.log(data);
+    return axios
+      .put(api + "/instruments/" + data._id, data, {
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
+      .then((res) => res.data);
+  },
 };
