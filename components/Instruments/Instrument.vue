@@ -1,8 +1,12 @@
 <template>
   <div class="section_form">
     <div class="title">
-      <p class="form_title">Register Instrument</p>
-      <input type="button" class="cstm_button back_button" value="BACK" @click="back">
+      <p class="form_title">
+        <font-awesome-icon icon="fa-solid fa-guitar" /> Register Instrument
+      </p>
+      <button class="cstm_button back_button" @click="back">
+        <font-awesome-icon icon="fa-solid fa-circle-left" /> BACK
+      </button>
     </div>
 
     <div>

@@ -2,7 +2,7 @@
   <div class="right_section">
     <div class="right_section_navbar">
       <span>No employer account yet?</span>
-      <button @click="registerUsers"><i class="fas fa-users"></i> Register</button>
+      <button @click="registerUsers"><font-awesome-icon icon="fas fa-users" /> Register</button>
     </div>
 
     <div class="right_section_card">

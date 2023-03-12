@@ -11,8 +11,10 @@
     <div class="drop_user" v-if="drop">
       <img class="user_photo" src="/img/user.png" />
       <p class="user_name">{{ nameUser }}</p>
-      <p class="user_name">{{ emailUser }}</p>
-      <button class="cstm_button" @click="logout">LOGOUT</button>
+      <p>{{ emailUser }}</p>
+      <button class="cstm_button" @click="logout">
+        <font-awesome-icon icon="fa-solid fa-right-from-bracket" /> LOGOUT
+      </button>
     </div>
   </div>
 </template>
@@ -81,7 +83,8 @@ export default {
 
 .user_name {
   margin: 0;
-  padding: 1rem;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .navbar_second_section button {
