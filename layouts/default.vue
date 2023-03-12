@@ -25,6 +25,10 @@ export default {
   font-family: 'Open Sans', sans-serif;
 }
 
+body {
+  background: #F4F4F4;
+}
+
 :root {
   --firstColor: #0082eb;
 }
@@ -51,5 +55,28 @@ export default {
 .cstm_button:hover {
   color: var(--firstColor);
   background: #fff;
+}
+
+.form_title {
+  font-weight: 700;
+  line-height: 30px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form_label,
+.form_text {
+  color: #4A4844;
+  font-weight: 500;
+  font-size: .8rem;
+  line-height: 19px;
+}
+
+.form_input {
+  padding: .5rem 0rem;
+  width: 50%;
+  margin: 1rem auto;
+  text-align: center;
+  display: block;
 }
 </style>

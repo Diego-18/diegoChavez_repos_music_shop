@@ -1,0 +1,110 @@
+<template>
+  <div>
+    <div class="title">
+      <p class="form_title">Register Instrument</p>
+      <input type="button" class="cstm_button back_button" value="BACK" @click="back">
+    </div>
+
+    <div>
+
+      <form>
+        <input type="text" v-model="instrument.name" placeholder="*Name" required autocomplete="off" class="form_input" />
+
+        <input type="number" v-model="instrument.price" placeholder="*Price" required autocomplete="off"
+          class="form_input" />
+
+        <select v-model="instrument.currency" class="form_input" placeholder="*Currency">
+          <option value="">Select a currency</option>
+          <option value="COP">COP</option>
+          <option value="USD">USD</option>
+        </select>
+
+        <input type="number" max="5" v-model="instrument.ranking" placeholder="*Ranking" required autocomplete="off"
+          class="form_input" />
+
+        <input type="button" class="cstm_button" @click="saveInstrument" value="SAVE">
+      </form>
+    </div>
+
+    <div v-if="showAlert">
+      <Alerts :type-alert="typeAlert" :msg-alert="msgAlert" />
+    </div>
+  </div>
+</template>
+
+<script>
+import Backend from '@/services/BackendServices'
+import Alerts from '@/components/Alerts/Alerts'
+
+export default {
+  components: {
+    Alerts
+  },
+  data() {
+    return {
+      instrument: {
+        name: "",
+        price: "",
+        ranking: "",
+        currency: "",
+      },
+      typeAlert: '',
+      msgAlert: '',
+      showAlert: false,
+    }
+  },
+  methods: {
+    saveInstrument() {
+      Backend.createInstrument(this.instrument)
+        .then((data) => {
+          this.instrument.name = "";
+          this.instrument.price = "";
+          this.instrument.ranking = "";
+          this.instrument.currency = "";
+
+          if (data.status === 200) {
+            this.msgAlert = "Product created sucessfully.";
+          }
+
+          this.typeAlert = "success";
+          this.showAlert = true;
+          console.log(data)
+        })
+        .catch((error) => {
+          console.log(error);
+          this.typeAlert = "error";
+          this.showAlert = true;
+
+          this.msgAlert = "Error in the request try again."
+        })
+        .finally(() => {
+          setTimeout(() => {
+            this.showAlert = false;
+          }, 3000)
+        })
+    },
+    back() {
+      this.$emit('backSection');
+    }
+  }
+}
+</script>
+
+<style scoped>
+.title {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+p {
+  float: left;
+}
+
+.back_button {
+  position: relative;
+  float: right;
+}
+</style>

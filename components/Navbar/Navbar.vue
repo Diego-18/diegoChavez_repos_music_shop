@@ -56,6 +56,7 @@ export default {
   display: inline-flex;
   position: relative;
   z-index: 0;
+  background: #fff;
 }
 
 .navbar_first_section {
@@ -104,12 +105,7 @@ export default {
   padding: 1rem;
   align-items: center;
   font-size: 1rem;
+  background: #fff;
+  border-radius: .5rem;
 }
-
-/* .search {
-  margin: auto 1rem;
-  width: 100%;
-  text-align: center;
-  padding: .5rem 0rem;
-} */
 </style>
