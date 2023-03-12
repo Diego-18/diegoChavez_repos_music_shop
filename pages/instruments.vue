@@ -100,6 +100,7 @@ export default {
     this.getInstruments()
   },
   computed: {
+    // filter search
     items() {
       return this.listInstruments.filter(item => {
         return item.name.toLowerCase().includes(this.search.toLowerCase());
@@ -107,19 +108,20 @@ export default {
     },
   },
   methods: {
+    // Show component for create instruments
     createInstruments() {
       this.sectionList = false;
       this.sectionCreate = true;
       this.sectionUpdate = false;
     },
-
+    // Show component for edit instruments
     editItem(item) {
       this.instrumentSelected = item;
       this.sectionList = false;
       this.sectionCreate = false;
       this.sectionUpdate = true;
     },
-
+    // Back for view principal (emit)
     backSection(status) {
       this.sectionList = true;
       this.sectionUpdate = false;
@@ -137,7 +139,7 @@ export default {
       }
       this.getInstruments();
     },
-
+    // Get all instruments
     getInstruments() {
       Backend.getInstruments()
         .then((data) => {
@@ -156,20 +158,19 @@ export default {
           }, 3000)
         })
     },
-
+    // format date
     formatDate(value) {
       return moment(value).startOf('day').fromNow();
     },
-
+    // Show modal delete instruments
     deleteItem(item) {
       this.showModalDeleted = true
       this.itemSelected = item._id
     },
-
+    // Delete instruments
     deleteItemConfirm() {
       Backend.deleteInstrument(this.itemSelected)
         .then((response) => {
-
           this.showModalDeleted = false
           if (response.status === 200) {
             this.msgAlert = "Product deleted sucessfully.";

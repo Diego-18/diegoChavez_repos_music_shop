@@ -10,7 +10,6 @@
     </div>
 
     <div>
-
       <form>
         <input type="text" v-model="instrument.name" placeholder="*Name" required autocomplete="off" class="form_input" />
 
@@ -62,6 +61,7 @@ export default {
     }
   },
   methods: {
+    // Update instruments
     saveInstrument() {
       Backend.updateInstrument(this.instrument)
         .then((data) => {
@@ -86,6 +86,7 @@ export default {
           }, 3000)
         })
     },
+    // Return page instrument
     back() {
       this.$emit('backSection');
     }

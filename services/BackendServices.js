@@ -6,10 +6,12 @@ const token =
   typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
 export default {
+  // Login
   login(data) {
     return axios.post(api + "/auth/login", data).then((res) => res.data);
   },
 
+  // Register Users
   createUser(data) {
     return axios.post(api + "/auth/register", data).then((res) => res.data);
   },
@@ -26,6 +28,7 @@ export default {
       .then((res) => res.data);
   },
 
+  // Instruments
   getInstruments() {
     return axios
       .get(api + "/instruments", {
@@ -62,4 +65,5 @@ export default {
       })
       .then((res) => res.data);
   },
+  // End Instruments
 };
