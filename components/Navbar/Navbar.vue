@@ -41,10 +41,12 @@ export default {
     }
   },
   methods: {
+    // Logout
     logout() {
       localStorage.clear();
       this.$router.push('/');
     },
+    // Open and close drop user info
     openDrop() {
       this.drop = !this.drop;
     }

@@ -63,6 +63,7 @@ export default {
   mounted() {
   },
   methods: {
+    // Validate Email
     validateEmail() {
       const ExpReg = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
       const pattern = new RegExp(ExpReg, 'i')
@@ -74,6 +75,7 @@ export default {
         this.showAlert = true;
       }
     },
+    // Auth
     authenticate() {
       if (this.login.email && this.login.password) {
         Backend.login(this.login)
@@ -121,12 +123,13 @@ export default {
         }, 3000)
       }
     },
+    // Access route users
     registerUsers() {
       this.$router.push('/users');
     }
   },
   head: {
-    title: 'Login',
+    title: 'Music Shop',
   },
 }
 </script>

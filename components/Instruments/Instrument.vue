@@ -58,6 +58,7 @@ export default {
     }
   },
   methods: {
+    // Register Istruments
     saveInstrument() {
       Backend.createInstrument(this.instrument)
         .then((data) => {
@@ -83,6 +84,7 @@ export default {
           }, 3000)
         })
     },
+    // Back page
     back() {
       this.$emit('backSection');
     }

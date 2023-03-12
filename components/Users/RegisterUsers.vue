@@ -62,9 +62,11 @@ export default {
     }
   },
   methods: {
+    // Back principal route.
     back() {
       this.$router.push('/');
     },
+    // Validation Email
     validateEmail() {
       const ExpReg = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
       const pattern = new RegExp(ExpReg, 'i')
@@ -80,6 +82,7 @@ export default {
         }, 3000)
       }
     },
+    // Save user
     saveUser() {
       if (this.user.email && this.user.password && this.user.name && this.user.confirmPassword) {
         if (this.user.password === this.user.confirmPassword) {
