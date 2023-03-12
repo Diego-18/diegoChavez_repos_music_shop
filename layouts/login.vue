@@ -23,28 +23,31 @@ export default {
 }
 </script>
 <style>
-* {
-  font-family: 'Open Sans', sans-serif;
-  margin: 0px;
-  padding: 0px;
+@font-face {
+  font-family: 'Bernier';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/Bernier.otf');
 }
 
-:root {
-  --firstColor: #0082eb;
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0px !important;
 }
+
 
 .first-color {
-  background-color: var(--firstColor) !important;
+  background-color: #0082eb !important;
   color: #fff !important;
 }
 
 .first-font {
-  color: var(--firstColor) !important;
+  color: #0082eb !important;
 }
 
 .left_bar {
   width: 20vw;
-  background: var(--firstColor) !important;
+  background: #0082eb;
   height: 100vh;
   padding: 1rem 2rem;
 }
@@ -64,8 +67,6 @@ export default {
   font-size: 3rem;
 }
 
-
-
 .left_bar_description {
   margin: 0 auto;
   font-size: 2rem;
@@ -76,8 +77,18 @@ export default {
   flex-wrap: wrap;
 }
 
-.right_section {
-  margin: 0rem auto;
-  width: 65vw;
+@media (max-width: 991px) {
+  .flex-container {
+    display: inline-flex;
+  }
+
+  .left_bar {
+    width: 100%;
+    height: 10%;
+  }
+
+  .left_bar_description {
+    display: none;
+  }
 }
 </style>
