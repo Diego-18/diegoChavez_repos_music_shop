@@ -230,7 +230,7 @@ export default {
 
 @media (max-width: 991px) {
   .right_section_navbar {
-    display: none;
+    margin: 0rem 1rem;
   }
 
   .right_section {
@@ -239,8 +239,12 @@ export default {
   }
 
   .right_section_card {
-    padding: 5rem 0rem;
+    padding: 0rem;
     margin: 0rem 2rem;
+  }
+
+  .right_section_form {
+    width: 78vw !important;
   }
 }
 </style>

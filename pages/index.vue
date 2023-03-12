@@ -243,12 +243,16 @@ a {
 
   .right_section {
     margin: 0rem auto;
-    width: 100%;
+    width: 100vw;
   }
 
   .right_section_card {
     padding: 5rem 0rem;
     margin: 0rem 2rem;
+  }
+
+  .right_section_form {
+    width: 80%;
   }
 }
 </style>
