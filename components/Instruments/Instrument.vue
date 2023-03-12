@@ -125,7 +125,7 @@ p {
   }
 
   .title p {
-    padding: 1rem;
+    padding: 1rem 0rem;
   }
 }
 </style>
