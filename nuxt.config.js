@@ -36,7 +36,21 @@ export default {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/axios"],
+  modules: [
+    "@nuxtjs/axios",
+    [
+      "vue-currency-filter/nuxt",
+      {
+        symbol: "$",
+        thousandsSeparator: ",",
+        fractionCount: 2,
+        fractionSeparator: ".",
+        symbolPosition: "front",
+        symbolSpacing: true,
+        avoidEmptyDecimals: undefined,
+      },
+    ],
+  ],
 
   axios: {
     baseURL: backendUrl,

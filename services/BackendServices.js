@@ -15,11 +15,22 @@ export default {
   },
 
   createInstrument(data) {
-    // console.log(data);
     return axios
       .post(api + "/instruments", data, {
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
+      .then((res) => res.data);
+  },
+
+  getInstruments() {
+    return axios
+      .get(api + "/instruments", {
+        headers: {
+          Authorization: `${token}`,
           "Content-Type": "application/json",
           Accept: "application/json",
         },
