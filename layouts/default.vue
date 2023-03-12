@@ -25,6 +25,7 @@ export default {
   font-family: 'Open Sans', sans-serif;
   margin: 0px;
   padding: 0px;
+  overflow-x: hidden;
 }
 
 :root {
@@ -76,5 +77,48 @@ export default {
   margin: 1rem auto;
   text-align: center;
   display: block;
+}
+
+.btn_delete,
+.btn_edit,
+.btn_info {
+  width: 4rem;
+  margin: .3rem;
+  padding: .5rem;
+  border-radius: .3rem;
+  color: #fff;
+}
+
+.btn_delete {
+  background: #ff4040;
+  border: 1px solid #ff4040;
+}
+
+.btn_info {
+  background: #04537D;
+  border: 1px solid #04537D;
+}
+
+.btn_edit {
+  background: #0082eb;
+  border: 1px solid #0082eb;
+}
+
+.btn_delete:hover,
+.btn_edit:hover,
+.btn_info:hover {
+  background: #fff;
+}
+
+.btn_delete:hover {
+  color: #ff4040;
+}
+
+.btn_edit:hover {
+  color: #0082eb;
+}
+
+.btn_info:hover {
+  color: #04537D;
 }
 </style>
