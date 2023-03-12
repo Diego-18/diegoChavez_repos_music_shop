@@ -25,7 +25,6 @@ export default {
   font-family: 'Open Sans', sans-serif;
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden;
 }
 
 :root {
