@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-container">
+  <div>
     <Navbar />
     <Nuxt />
   </div>
@@ -23,10 +23,8 @@ export default {
 
 * {
   font-family: 'Open Sans', sans-serif;
-}
-
-body {
-  background: #F4F4F4;
+  margin: 0px;
+  padding: 0px;
 }
 
 :root {

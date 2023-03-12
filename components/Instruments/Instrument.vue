@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="section_form">
     <div class="title">
       <p class="form_title">Register Instrument</p>
       <input type="button" class="cstm_button back_button" value="BACK" @click="back">
@@ -91,6 +91,16 @@ export default {
 </script>
 
 <style scoped>
+.section_form {
+  width: 60%;
+  background: #fff;
+  padding: 1rem;
+  border-radius: .5rem;
+  border: 1px solid var(--firstColor);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  margin: 3rem auto;
+}
+
 .title {
   width: 100%;
   display: flex;
