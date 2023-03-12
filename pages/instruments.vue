@@ -22,10 +22,12 @@
             </div>
             <br>
             <button class="btn_delete" @click="deleteItem(item)">
-              <font-awesome-icon icon="fa-solid fa-trash-can" /> DELETE
+              <font-awesome-icon icon="fa-solid fa-trash-can" /> <br />
+              DELETE
             </button>
             <button class="btn_edit" @click="editItem(item)">
-              <font-awesome-icon icon="fa-solid fa-file-pen" /> EDIT
+              <font-awesome-icon icon="fa-solid fa-file-pen" /> <br />
+              EDIT
             </button>
           </div>
         </div>
