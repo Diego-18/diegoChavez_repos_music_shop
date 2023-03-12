@@ -116,4 +116,15 @@ p {
   position: relative;
   float: right;
 }
+
+@media (max-width: 991px) {
+  .section_form {
+    width: 80%;
+    padding: .5rem;
+  }
+
+  .title p {
+    padding: 1rem;
+  }
+}
 </style>

@@ -117,7 +117,7 @@ export default {
   }
 
   .drop_user {
-  width: 50%;
-}
+    width: 50%;
+  }
 }
 </style>
