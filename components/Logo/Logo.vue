@@ -1,14 +1,12 @@
 <template>
   <p class="logo">Music Shop
-    <i class="fas fa-guitar"></i>
+    <font-awesome-icon icon="fa-solid fa-guitar" />
   </p>
 </template>
 
 <script></script>
 
 <style>
-@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
-
 @font-face {
   font-family: 'Bernier';
   font-style: normal;

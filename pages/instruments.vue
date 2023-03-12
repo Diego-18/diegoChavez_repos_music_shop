@@ -2,13 +2,15 @@
   <div>
     <div v-if="sectionList">
       <div class="container">
-        <button class="cstm_button" @click="createInstruments">NEW</button>
+        <button class="cstm_button" @click="createInstruments">
+          <font-awesome-icon icon="fa-solid fa-circle-plus" /> NEW
+        </button>
         <br>
         <input type="text" placeholder="Search instruments" class="search" v-model="search" />
       </div>
 
       <div class="list_instrument" v-if="items.length > 0">
-        <div class="card_items" v-for="item in items" :key="item.id">
+        <div class="card_items" v-for="item in items" :key="item.id" style="margin: .5rem auto;">
           <img class="item_img" src="/img/foto.jpg" />
           <div class="info_item">
             {{ item.name }}
@@ -16,11 +18,15 @@
             <p class="price_item">{{ item.price | currency }} {{ item.currency }}</p>
             <p>{{ formatDate(item.createdAt) }}</p>
             <div v-for="(star, index) in item.ranking" :key="index" class="stars">
-              <i class="fas fa-star"></i>
+              <font-awesome-icon icon="fa-solid fa-star" />
             </div>
             <br>
-            <input type="button" value="DELETE" @click="deleteItem(item)" class="btn_delete">
-            <input type="button" value="EDIT" @click="editItem(item)" class="btn_edit">
+            <button class="btn_delete" @click="deleteItem(item)">
+              <font-awesome-icon icon="fa-solid fa-trash-can" /> DELETE
+            </button>
+            <button class="btn_edit" @click="editItem(item)">
+              <font-awesome-icon icon="fa-solid fa-file-pen" /> EDIT
+            </button>
           </div>
         </div>
       </div>
@@ -42,18 +48,19 @@
 
 
 
-    <div class="modal">
-      <div class="modal_delete" v-if="showModalDeleted">
-        <div class="modal_body">
-          Are you sure you want to delete the item?
-        </div>
-        <div class="modal_action">
-          <input class="btn_info" type="button" value="CANCEL" @click="showModalDeleted = false">
-          <input class="btn_delete" type="button" value="DELETE" @click="deleteItemConfirm">
-        </div>
+    <div class="modal_delete" v-if="showModalDeleted">
+      <div class="modal_body">
+        Are you sure you want to delete the item?
+      </div>
+      <div class="modal_action">
+        <button class="btn_info" @click="showModalDeleted = false">
+          <font-awesome-icon icon="fa-solid fa-rectangle-xmark" /> CANCEL
+        </button>
+        <button class="btn_delete" @click="deleteItemConfirm">
+          <font-awesome-icon icon="fa-solid fa-trash-can" /> DELETE
+        </button>
       </div>
     </div>
-
   </div>
 </template>
 <script>
@@ -215,6 +222,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-between;
+  align-items: flex-start;
 
 }
 
@@ -223,7 +231,7 @@ export default {
   background: #fff;
   border: solid 1px #0082eb;
   margin: .5rem;
-  align-items: center;
+
   border-radius: 1rem;
   font-size: .9rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
@@ -248,11 +256,16 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-between;
+  margin: .5rem 0rem;
 }
 
 .price_item,
 .filter_not_results {
   font-weight: bold;
+}
+
+.price_item {
+  margin: .5rem 0rem;
 }
 
 .filter_not_results {
@@ -274,6 +287,10 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   list-style-type: none;
+}
+
+.modal_action {
+  margin: 0rem 2rem;
 }
 
 @media (max-width: 991px) {

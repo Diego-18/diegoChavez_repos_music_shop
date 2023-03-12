@@ -64,7 +64,7 @@ body {
   left: 50%;
   height: 30%;
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .left_bar_description {

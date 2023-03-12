@@ -1,8 +1,8 @@
 <template>
   <div class="right_section">
     <div class="right_section_navbar">
-      <button @click="back()">
-        <i class="fas fa-arrow-alt-circle-left"> Back</i>
+      <button @click="back">
+        <font-awesome-icon icon="fa-solid fa-circle-left" /> BACK
       </button>
     </div>
     <div class="right_section_card">
