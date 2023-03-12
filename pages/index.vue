@@ -130,11 +130,15 @@ export default {
   },
 }
 </script>
-<style scope>
+<style scoped>
+.right_section {
+  margin: 0rem auto;
+  width: 65vw;
+}
+
 .right_section_navbar {
   padding: 1rem 0;
   text-align: right;
-
 }
 
 .right_section_navbar span {
@@ -151,8 +155,8 @@ export default {
 }
 
 .right_section_navbar button {
-  color: var(--firstColor);
-  border: var(--firstColor) 1px solid;
+  color: #0082eb;
+  border: #0082eb 1px solid;
   background: transparent;
   padding: .5rem 2rem;
   border-radius: .2rem;
@@ -161,7 +165,7 @@ export default {
 
 .right_section_navbar button:hover {
   color: #fff;
-  background: var(--firstColor);
+  background: #0082eb;
 }
 
 .right_section_card {
@@ -169,7 +173,7 @@ export default {
 }
 
 .right_section_form {
-  border: 1px solid var(--firstColor);
+  border: 1px solid #0082eb;
   padding: 1rem;
   margin: 2rem auto;
   width: 30em;
@@ -194,13 +198,13 @@ a {
 }
 
 a {
-  color: var(--firstColor);
+  color: #0082eb;
   text-decoration: none;
 }
 
 .form_button {
-  background: var(--firstColor);
-  border: 1px solid var(--firstColor);
+  background: #0082eb;
+  border: 1px solid #0082eb;
   color: #fff;
   border-radius: .2rem;
   font-size: 1.2rem;
@@ -208,7 +212,7 @@ a {
 
 .form_button:hover {
   background: #fff;
-  color: var(--firstColor);
+  color: #0082eb;
 }
 
 .form_input,
@@ -233,18 +237,8 @@ a {
 }
 
 @media (max-width: 991px) {
-  .flex-container {
-    display: inline-flex;
-  }
-
-  .left_bar_description,
   .right_section_navbar {
     display: none;
-  }
-
-  .left_bar {
-    width: 100%;
-    height: 10%;
   }
 
   .right_section {

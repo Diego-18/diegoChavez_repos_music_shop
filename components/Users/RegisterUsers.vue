@@ -147,14 +147,14 @@ export default {
 </script>
 
 <style scoped>
-.right_section_card {
-  padding: 5rem 2rem;
+.right_section {
+  margin: 0rem auto;
+  width: 65vw;
 }
 
 .right_section_navbar {
   padding: 1rem 0;
   text-align: right;
-
 }
 
 .right_section_navbar button,
@@ -165,8 +165,8 @@ export default {
 }
 
 .right_section_navbar button {
-  color: var(--firstColor);
-  border: var(--firstColor) 1px solid;
+  color: #0082eb;
+  border: #0082eb 1px solid;
   background: transparent;
   padding: .5rem 2rem;
   border-radius: .2rem;
@@ -175,11 +175,22 @@ export default {
 
 .right_section_navbar button:hover {
   color: #fff;
-  background: var(--firstColor);
+  background: #0082eb;
+}
+
+.right_section_card {
+  padding: 5rem 2rem;
+}
+
+.right_section_navbar button,
+.form_button {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 22px;
 }
 
 .right_section_form {
-  border: 1px solid var(--firstColor);
+  border: 1px solid #0082eb;
   padding: 1rem;
   margin: 2rem auto;
   width: 30em;
@@ -194,9 +205,7 @@ export default {
   margin-bottom: 1rem;
 }
 
-.form_label,
-.form_text,
-a {
+.form_label {
   color: #4A4844;
   font-weight: 500;
   font-size: .8rem;
@@ -204,8 +213,8 @@ a {
 }
 
 .form_button {
-  background: var(--firstColor);
-  border: 1px solid var(--firstColor);
+  background: #0082eb;
+  border: 1px solid #0082eb;
   color: #fff;
   border-radius: .2rem;
   font-size: 1.2rem;
@@ -217,5 +226,21 @@ a {
   width: 100%;
   margin: 1rem auto;
   text-align: center;
+}
+
+@media (max-width: 991px) {
+  .right_section_navbar {
+    display: none;
+  }
+
+  .right_section {
+    margin: 0rem auto;
+    width: 100%;
+  }
+
+  .right_section_card {
+    padding: 5rem 0rem;
+    margin: 0rem 2rem;
+  }
 }
 </style>
