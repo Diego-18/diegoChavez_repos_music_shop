@@ -275,4 +275,11 @@ export default {
   justify-content: space-between;
   list-style-type: none;
 }
+
+@media (max-width: 991px) {
+  .card_items {
+    width: 80%;
+    margin: 0.5rem auto;
+  }
+}
 </style>

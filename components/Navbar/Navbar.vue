@@ -108,4 +108,16 @@ export default {
   background: #fff;
   border-radius: .5rem;
 }
+
+@media (max-width: 991px) {
+  .navbar_first_section {
+    font-size: 1.5rem;
+    width: 50%;
+    margin: auto 0;
+  }
+
+  .drop_user {
+  width: 50%;
+}
+}
 </style>
