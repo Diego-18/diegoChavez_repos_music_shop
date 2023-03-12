@@ -61,7 +61,7 @@ export default {
 
 .navbar_first_section {
   width: 20%;
-  font-size: 3rem;
+  font-size: 2.5rem;
   padding: 0rem .5rem;
   color: var(--firstColor);
 }

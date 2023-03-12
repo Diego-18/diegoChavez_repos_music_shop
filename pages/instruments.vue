@@ -4,11 +4,11 @@
       <div class="container">
         <button class="cstm_button" @click="createInstruments">NEW</button>
         <br>
-        <input type="search" placeholder="Search instruments" class="search" />
+        <input type="text" placeholder="Search instruments" class="search" v-model="search" />
       </div>
 
-      <div class="list_instrument">
-        <div class="card_items" v-for="item in listInstruments" :key="item.id">
+      <div class="list_instrument" v-if="items.length > 0">
+        <div class="card_items" v-for="item in items" :key="item.id">
           <img class="item_img" src="/img/foto.jpg" />
           <div class="info_item">
             {{ item.name }}
@@ -18,10 +18,11 @@
             <div v-for="(star, index) in item.ranking" :key="index" class="stars">
               <i class="fas fa-star"></i>
             </div>
-
           </div>
-
         </div>
+      </div>
+      <div v-else>
+        <p class="filter_not_results">There are no results.</p>
       </div>
     </div>
     <div v-if="sectionCreate">
@@ -51,7 +52,8 @@ export default {
       typeAlert: '',
       msgAlert: '',
       showAlert: false,
-      listInstruments: []
+      listInstruments: [],
+      search: ''
     }
   },
   mounted() {
@@ -59,6 +61,13 @@ export default {
       this.$router.push('/');
     }
     this.getInstruments()
+  },
+  computed: {
+    items() {
+      return this.listInstruments.filter(item => {
+        return item.name.toLowerCase().includes(this.search.toLowerCase());
+      });
+    },
   },
   methods: {
     createInstruments() {
@@ -75,7 +84,6 @@ export default {
       Backend.getInstruments()
         .then((data) => {
           this.listInstruments = data.response
-          console.log(data)
         })
         .catch((error) => {
           console.log(error);
@@ -91,7 +99,7 @@ export default {
         })
     },
     formatDate(value) {
-      return moment(value).calendar()
+      return moment(value).endOf('day').fromNow();
     },
   },
 }
@@ -128,12 +136,14 @@ export default {
 }
 
 .card_items {
-  width: 12rem;
+  width: 10.5rem;
   background: #fff;
   border: solid 1px;
   margin: 1rem auto;
   align-items: center;
   border-radius: 1rem;
+  font-size: .9rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .item_img {
@@ -156,7 +166,12 @@ export default {
   align-content: space-between;
 }
 
-.price_item {
+.price_item,
+.filter_not_results {
   font-weight: bold;
+}
+
+.filter_not_results {
+  text-align: center;
 }
 </style>
